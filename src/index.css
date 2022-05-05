@@ -1,13 +1,367 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/*Font Key
+For headers
+font-family: "GeosansLight-NMS", sans-serif;
+
+For most other body stuff
+font-family: 'Raleway', sans-serif;
+font-family: 'Literata', serif;
+*/
+html {
+  height: 100%;
+  font-size: 10px;
+  background-color: rgb(2, 60, 104);
+  background-image: url('./images/site-background.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  font-family: "GeosansLight-NMS", sans-serif;
+}
+
+h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: "GeosansLight-NMS", sans-serif;
+}
+
+h3 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  font-family: "GeosansLight-NMS", sans-serif;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 4.5rem auto;
+}
+
+header,
+nav {
+  grid-column: span 6;
+  height: 4.5rem;
+  background-color: rgba(45, 52, 54, 1.0);
+  font-family: "GeosansLight-NMS", sans-serif;
+  font-size: 2.5rem;
+  color: rgba(234, 246, 229, 1.0);
+  display: flex;
+  align-items: center;
+}
+
+nav {
+  justify-content: flex-end;
+}
+
+header div.breadcrumb {
+  padding: 0 0 0 1rem;
+}
+
+a.nav-link {
+  color: rgba(234, 246, 229, 1);
+  height: 100%;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 500ms ease-in-out, color 300ms ease-in-out;
+}
+
+a.nav-link:hover {
+  color: rgb(45, 52, 54);
+  background-color: rgb(121, 152, 238);
+}
+
+main.content-box {
+  grid-column: span 12;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  color: rgba(234, 246, 229, 1);
+  padding: 2rem 0;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+/* Home / About Page */
+section.greeting {
+  display: flex;
+  padding: 2rem 0 2rem 2rem;
+  background-color: rgba(10, 128, 219, 1);
+  box-shadow: -2px 4px 10px 3px rgb(25, 52, 73);
+  border-radius: 5px;
+  grid-column: 4 / 10;
+}
+
+section.greeting div.headshot {
+  height: 150px;
+  margin-right: 3rem;
+}
+
+section.greeting div.headshot img {
+  max-width: 100%;
+  height: 100%;
+}
+
+section.greeting div.greating-text h1 {
+  font-size: 5.5rem;
+}
+
+section.greeting div.greating-text p {
+  font-size: 2.5rem;
+  padding-left: 12rem;
+  padding-top: 3.5rem;
+}
+
+section.about {
+  margin-top: 3rem;
+  padding: 2rem;
+  grid-column: 2 / span 10;
+  background-color: rgb(6, 103, 177);
+  box-shadow: -2px 4px 10px 3px rgb(25, 52, 73);
+  border-radius: 5px;
+}
+
+section.about p {
+  display: block;
+  font-size: 1.7rem;
+  padding: 0.5rem
+}
+
+div.cta {
+  grid-column: span 12;
+  margin: 0 auto;
+  padding-top: 3.5rem;
+  text-align: center;
+}
+
+div.cta p {
+  font-size: 3rem;
+}
+
+div.contact-button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+div.contact-button-container.email {
+  grid-column: 3 / span 2;
+}
+
+div.contact-button-container.github {
+  grid-column: 6 / span 2;
+}
+
+div.contact-button-container.linkedin {
+  grid-column: 9 / span 2;
+}
+
+div.contact-button-container a {
+  font-size: 3rem;
+  color: rgba(234, 246, 229, 1);
+}
+
+/* Projects page */
+div.my-stack {
+  grid-column: 2 / 12;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 2.5rem;
+}
+
+section.project-tile {
+  grid-column: 2 / 12;
+  margin: 2.5rem auto;
+  padding: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid black;
+  background-color: rgb(6, 103, 177);
+  box-shadow: -2px 4px 10px 3px rgb(25, 52, 73);
+  border-radius: 5px;
+}
+
+h2.project-title {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+}
+
+h2.project-title a {
+  color: rgba(234, 246, 229, 1);
+}
+
+div.project-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+div.project-preview {
+  grid-column: span 4;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+div.project-preview a,
+div.project-preview a img {
+  max-width: 100%;
+}
+
+div.project-info {
+  grid-column: span 8;
+  padding-left: 2rem;
+}
+
+div.project-tech {
+  font-family: "GeosansLight-NMS", sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+div.project-summary {
+  font-size: 1.5rem;
+}
+
+div.project-summary p {
+  padding-bottom: 0.5rem;
+  line-height: 1.8rem;
+}
+
+div.project-summary a {
+  color: rgba(234, 246, 229, 1);
+}
+
+div.project-summary p.repo {
+  font-weight: bold;
+}
+
+div.project-summary p.repo a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Rules */
+@media screen and (max-width: 1200px) {
+  section.greeting div.greating-text p {
+    padding-left: 0;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  section.greeting {
+    grid-column: 2 / 10;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  header {
+    grid-column: span 4;
+  }
+
+  nav {
+    grid-column: span 8;
+    justify-content: space-around;
+  }
+
+  a.nav-link {
+    width: 100%;
+  }
+
+  section.greeting {
+    grid-column: 2 / 12;
+  }
+
+  section.project-tile {
+    grid-column: 2 / 12;
+  }
+
+  div.project-preview {
+    grid-column: 2 / span 10;
+  }
+
+  h2.project-title {
+    text-align: center;
+  }
+
+  div.project-info {
+    grid-column: span 12;
+    text-align: center;
+    padding-left: 0;
+    padding-top: 2rem;
+  }
+
+  div.project-tech {
+    margin-bottom: 2rem;
+  }
+
+  article {
+    grid-column: 2 / 12;
+  }
+
+  article title {
+    font-size: 5rem;
+  }
+
+  article span.created-date {
+    margin-bottom: 1.2rem;
+  }
+
+  section.about p,
+  div.project-summary,
+  article div.post-body {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  input {
+    font-size: 2rem;
+  }
+
+  div.breadcrumb span#page-title {
+    display: none;
+  }
+
+  section.greeting {
+    padding: 1.5rem 0;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  section.greeting div.headshot {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  div.contact-button-container.email {
+    grid-column: 6 / span 2;
+  }
+
+  div.contact-button-container.github {
+    grid-column: 4 / span 2;
+  }
+
+  div.contact-button-container.linkedin {
+    grid-column: 8 / span 2;
+  }
+
+  div.project-preview {
+    grid-column: span 12;
+  }
 }

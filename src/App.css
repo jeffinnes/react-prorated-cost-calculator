@@ -1,42 +1,183 @@
-.App {
+div.title-box {
   text-align: center;
+  grid-column: 3 / 11;
+  margin-bottom: 2rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+div.title-box span {
+  font-size: 1.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+div.calculator {
+  grid-column: 3 / 11;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  background-color: rgb(57, 80, 104);
+  box-shadow: -2px 4px 10px 3px rgb(25, 52, 73);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: minmax(45px, auto);
+  gap: .5rem 0;
+  align-items: center;
+  font-size: 1.5rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+div.calculator input {
+  margin: 0 0.5rem;
+}
+
+div#start-date-selector {
+  grid-column: 2 / 5;
+  height: 100%;
+}
+
+div#renewal-date-selector {
+  grid-column: 5 / 8;
+  height: 100%;
+}
+
+div#start-date-selector,
+div#renewal-date-selector {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
+  justify-content: flex-end;
 }
 
-.App-link {
-  color: #61dafb;
+div.days-left {
+  grid-column: 8 / 12;
+  display: flex;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+div.single-cost-per-year {
+  grid-column: 2 / 12;
+  display: flex;
+  align-items: center;
+}
+
+div.prorate-single {
+  grid-column: 2 / 7;
+  display: flex;
+  align-items: center;
+}
+
+div.qty {
+  grid-column: 2 / 7;
+  display: flex;
+  align-items: center;
+}
+
+div.subtotal {
+  grid-column: 2 / 6;
+  display: flex;
+  align-items: center;
+}
+
+div.tax {
+  grid-column: 2 / 7;
+  display: flex;
+  align-items: center;
+}
+
+div.total {
+  grid-column: 7 / 12;
+  grid-row: 4 / 6;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.num-input {
+  width: 6rem;
+}
+
+span.cute-bs {
+  grid-column: 6 / 8;
+  text-align: center;
+  padding: 1rem 0 1rem 0;
+}
+
+/* Responsive Rules */
+
+@media screen and (max-width: 950px) {
+  div.prorate-single {
+    grid-column: 2 / 12;
   }
-  to {
-    transform: rotate(360deg);
+
+  div.qty {
+    grid-column: 2 / 12;
+  }
+
+  div.total {
+    grid-row: 5 / 7;
   }
 }
 
-button {
-  font-size: calc(10px + 2vmin);
+@media screen and (max-width: 750px) {
+  div.calculator {
+    grid-column: 1 / 13;
+    font-size: 2rem;
+  }
+
+  div#start-date-selector {
+    grid-column: 2 / 7;
+  }
+
+  div#renewal-date-selector {
+    grid-column: 7 / 12;
+  }
+
+  div.days-left,
+  div.prorate-single,
+  div.qty,
+  div.subtotal,
+  div.tax {
+    grid-column: 2 / 12;
+  }
+
+  div.total {
+    grid-row: auto;
+    font-size: 3rem;
+    grid-column: 2 / 12;
+  }
 }
+
+@media screen and (max-width: 620px) {
+  div.calculator {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    grid-auto-rows: minmax(60px, auto);
+  }
+
+  div#start-date-selector {
+    grid-column: 1 / 7;
+  }
+
+  div#renewal-date-selector {
+    grid-column: 7 / 13;
+  }
+
+  div.days-left,
+  div.prorate-single,
+  div.qty,
+  div.subtotal,
+  div.tax,
+  div.total {
+    grid-column: 1 / 13;
+  }
+
+  div.single-cost-per-year {
+    grid-column: 1 / 13;
+    flex-direction: column;
+    align-items: baseline;
+  }
+
+  div.single-cost-per-year div {
+    display: flex;
+    align-items: center;
+  }
+
+}
+
+@media screen and (max-width: 450px) {}
